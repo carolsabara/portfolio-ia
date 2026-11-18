@@ -62,7 +62,8 @@ h1 .gr>span{background:linear-gradient(90deg,#fff 0%,var(--acc) 55%,var(--red) 1
 .hclip canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 .hclip .glare{position:absolute;inset:0;background:radial-gradient(circle at var(--gx,50%) var(--gy,30%),rgba(255,255,255,.16),transparent 45%);pointer-events:none;mix-blend-mode:overlay}
 .htag{position:absolute;left:16px;bottom:16px;z-index:3;font:500 12px var(--m);background:rgba(7,11,18,.72);backdrop-filter:blur(8px);border-radius:99px;padding:8px 14px;color:#D5DCE4;opacity:0;transform:translateY(10px);transition:opacity .6s 2.4s,transform .6s 2.4s}
-.on .htag{opacity:1;transform:none}.htag i{color:#3DDC97;font-style:normal}
+.on .htag{opacity:1;transform:none}
+.htag.emp{display:flex;align-items:center;gap:8px;color:#fff;font-weight:600}.lgif{height:19px;width:auto;display:inline-block;vertical-align:middle}.eb .lgif{height:16px;margin-left:6px;vertical-align:-1px}.htag.emp svg{width:16px;height:16px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.htag i{color:#3DDC97;font-style:normal}
 .hcap{position:absolute;right:-16px;top:22px;font:500 11px var(--m);letter-spacing:.1em;color:var(--mut);writing-mode:vertical-rl}
 @media (max-width:900px){.hero .in{grid-template-columns:1fr;gap:34px;padding-top:96px}.hft{justify-self:start;width:min(78%,320px);order:-1}.hcap{display:none}}
 
@@ -137,6 +138,37 @@ body.aberto .top{opacity:0;pointer-events:none}
 .gs .rv{clip-path:none;opacity:1;transform:none;transition:none}
 .gs h1 .w>span{transition:none;transform:none}
 .gs .hero .intro,.gs .hero .hbts{transition:none;opacity:1;transform:none}
+/* o que vem agora */
+.prox{padding:16vh 28px 4vh}
+.plist{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.pi{border:1px dashed rgba(255,255,255,.18);border-radius:20px;padding:24px}
+.pi span{font:500 11px var(--m);letter-spacing:.08em;text-transform:uppercase;color:var(--acc)}
+.pi h4{font:600 20px var(--h);letter-spacing:-.02em;margin:10px 0 8px}
+.pi p{margin:0;color:var(--mut);font-size:15px;line-height:1.55}
+.prox .form{margin:28px 0 0;font:500 13px var(--m);color:var(--mut)}
+@media (max-width:860px){.plist{grid-template-columns:1fr}}
+/* recado personalizado (?para=empresa) */
+.recado{position:fixed;left:50%;bottom:22px;transform:translate(-50%,140%);z-index:45;max-width:min(560px,calc(100% - 32px));background:rgba(12,20,32,.92);backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:18px;padding:16px 46px 16px 18px;font-size:15px;line-height:1.5;color:#D5DCE4;transition:transform .8s cubic-bezier(.16,1,.3,1)}
+.recado.on{transform:translate(-50%,0)}
+.recado b{color:#fff}.recado small{display:block;font:500 11px var(--m);letter-spacing:.08em;text-transform:uppercase;color:var(--acc);margin-bottom:4px}
+.recado button{position:absolute;top:10px;right:10px;border:0;background:none;color:var(--mut);font-size:18px;cursor:pointer}
+/* cardápio */
+.menu{padding:14vh 28px 4vh}
+.msub{color:var(--mut);margin:12px 0 0;font-size:16px}
+.mlist{list-style:none;padding:0;margin:36px 0 0;border-top:1px solid var(--line)}
+.mi{padding:22px 0;border-bottom:1px solid var(--line)}
+.ml{display:flex;align-items:baseline;gap:12px}
+.ml h4{margin:0;font:600 clamp(18px,2vw,22px) var(--h);letter-spacing:-.02em}
+.dots{flex:1;border-bottom:2px dotted rgba(255,255,255,.18);transform:translateY(-5px);min-width:20px}
+.ok{font:500 12px var(--m);letter-spacing:.06em;color:var(--acc);white-space:nowrap}
+.ok.fogo{color:#E8C27A}
+.mi p{margin:8px 0 6px;color:var(--mut);font-size:15px;line-height:1.55;max-width:60em}
+.mi a{font:500 12px var(--m);color:#D5DCE4;text-decoration:none;opacity:.7}.mi a:hover{opacity:1}
+@media (max-width:700px){.ml{flex-wrap:wrap}.dots{display:none}}
+.molho{margin-top:28px;border:1px solid rgba(120,200,170,.35);background:linear-gradient(135deg,rgba(120,200,170,.08),transparent 60%);border-radius:20px;padding:24px 26px}
+.molho h3{font:600 24px var(--h);letter-spacing:-.02em;margin:8px 0 8px}
+.molho h3 em{font-family:'Instrument Serif',serif;font-weight:400;color:var(--acc)}
+.mlh{list-style:none;padding:0;margin:6px 0 0}.mlh li{color:#C3CDD8;font-size:16px;line-height:1.55;padding:8px 0 8px 22px;position:relative}.mlh li::before{content:"✓";position:absolute;left:0;color:var(--acc);font-family:var(--m)}
 /* números */
 .nums{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .nums div{padding:48px 24px;border-right:1px solid var(--line)}.nums div:last-child{border-right:0}
@@ -174,7 +206,7 @@ footer{border-top:1px solid var(--line);padding:22px 28px;display:flex;justify-c
 </head>
 <body>
 <div class="cur" id="cur"><span>ABRIR</span></div>
-<header class="top"><a class="n" href="#">carol<i>.</i>ai</a><nav><a href="#automacoes">Automações</a><a href="#projetos">Projetos</a><a href="#sobre">Sobre</a><a href="#contato">Contato</a></nav></header>
+<header class="top"><a class="n" href="#">carol<i>.</i>ai</a><nav><a href="#automacoes">Automações</a><a href="#projetos">Projetos</a><a href="#sobre">Próximos passos</a><a href="#contato">Contato</a></nav></header>
 
 <!-- HERO -->
 <section class="hero" id="hero">
@@ -186,8 +218,21 @@ footer{border-top:1px solid var(--line);padding:22px 28px;display:flex;justify-c
       <p class="intro">Oi, eu sou a <b>Carol</b>. Estudo Gestão de Tecnologia e dou aulas de inglês. Foi dando aula que encontrei meu primeiro problema real para resolver com tecnologia. Me apaixonei por inteligência artificial quando decidi criar uma plataforma inteira para os meus alunos, usando a IA como ferramenta.</p>
       <div class="hbts"><a class="k" href="#projetos">Ver projetos ↓</a><a href="https://www.linkedin.com/in/sabarah" target="_blank" rel="noopener">LinkedIn ↗</a></div>
     </div>
-    <div class="hft" id="hft"><div class="hclip" id="hclip"><img src="img/carol.webp" alt="Foto da Carol" id="hImg"><canvas id="hasc"></canvas><div class="glare" id="glare"></div></div><div class="htag"><i>●</i> carol · online</div><div class="hcap">CAROL · AI BUILDER</div></div>
+    <div class="hft" id="hft"><div class="hclip" id="hclip"><img src="img/carol.webp" alt="Foto da Carol" id="hImg"><canvas id="hasc"></canvas><div class="glare" id="glare"></div></div><div class="htag" id="htag"><i>●</i> carol · online</div><div class="hcap">CAROL · AI BUILDER</div></div>
   </div>
+</section>
+
+<!-- CARDÁPIO (só com ?para=ifood) -->
+<section class="menu wrap" id="cardapio" hidden>
+  <div class="eb">Pedido para o <img src="img/ifood-logo.webp" alt="iFood" class="lgif"></div><h2>Eu tenho os <em>ingredientes</em> que vocês precisam</h2>
+  <p class="msub">Cada ingrediente da vaga e onde ele aparece neste portfólio. E ainda vem com o molho.</p>
+  <ol class="mlist">
+    <li class="mi"><div class="ml"><h4>Prompts bem estruturados e experimentos com LLMs</h4><span class="dots"></span><span class="ok">tenho ✓</span></div><p>Prompts, Knowledge Sources e ferramentas dos 4 agentes do MVP de ETL · sugestões do Gemini no relatório semanal.</p><a href="#projetos">ver projetos →</a></li>
+    <li class="mi"><div class="ml"><h4>Automações que economizam horas reais</h4><span class="dots"></span><span class="ok">tenho ✓</span></div><p>Áudios gerados por IA, aulas e exercícios gerados automaticamente, auditoria de 10.710 exercícios e relatório semanal no n8n.</p><a href="#automacoes">ver automações →</a></li>
+    <li class="mi"><div class="ml"><h4>Ferramentas deployadas, dashboards e agentes</h4><span class="dots"></span><span class="ok">tenho ✓</span></div><p>Portal no ar com painel de progresso dos alunos, fluxos do n8n rodando toda semana e o MVP multiagente.</p><a href="#projetos">ver projetos →</a></li>
+    <li class="mi"><div class="ml"><h4>Soluções em produção, usadas por outras pessoas</h4><span class="dots"></span><span class="ok fogo">em preparo</span></div><p>A plataforma está em produção e é usada pelos meus alunos. Os resultados mensuráveis ainda estão sendo coletados.</p><a href="#sobre">ver próximos passos →</a></li>
+    </ol>
+  <div class="molho rv"><span class="ok">o que eu trago a mais</span><h3>E eu ainda tenho o <em>molho</em></h3><ul class="mlh"><li>Eu dou aula de inglês: sei transformar um assunto difícil em algo simples.</li><li>Crio conteúdo e falo com o público todo dia.</li><li>Aprendo construindo, do problema real até o produto no ar.</li></ul></div>
 </section>
 
 <!-- AUTOMATIZEI -->
@@ -221,29 +266,23 @@ footer{border-top:1px solid var(--line);padding:22px 28px;display:flex;justify-c
   <div class="row" data-dir="1" id="r2"></div>
 </section>
 
-<!-- SOBRE -->
-<section class="sobre wrap" id="sobre">
-  <div class="ft rv bdg"><img src="img/oracle-oci.webp" alt="Badge Oracle Cloud Infrastructure Foundations Associate 2025"><div class="bd" style="padding:10px 16px">Oracle Cloud Infrastructure<br>Foundations Associate · 2025</div></div>
-  <div class="rv">
-    <div class="eb">04 · Quem sou eu</div><h2>Da sala de aula para a <em>tecnologia</em></h2>
-    <p style="margin-top:22px">Estudo Gestão de Tecnologia e me apaixonei por IA. Ainda não atuo na área de tecnologia. Hoje dou aulas de inglês, e cada parte do Inglês Club foi uma oportunidade de aprender na prática: integrações de API, banco de dados, automação, testes e cuidado com dados pessoais.</p>
-    <div class="eb" style="margin-top:28px">Um pouco mais sobre mim</div>
-    <p style="margin-top:10px">Também sou criadora de conteúdo no @ingles.club, onde cuido do roteiro, do design e da automação que transforma seguidores em alunos.</p>
-    <ul class="tl">
-      <li><time>até dez/2027</time><span>Tecnólogo em Gestão de Tecnologia da Informação (em andamento)</span></li>
-      <li><time>2025</time><span>Certificação Oracle Cloud Infrastructure Foundations Associate · Oracle Next Education (Oracle + Alura)</span></li>
-      <li><time>2026</time><span>Plataforma Inglês Club: Supabase, JavaScript, Python e n8n</span></li>
-      <li><time>2026</time><span>Criadora de conteúdo @ingles.club, com captação automática via ManyChat</span></li>
-    </ul>
+<!-- PRÓXIMOS PASSOS + CONTATO -->
+<section class="prox wrap" id="sobre">
+  <div class="eb">04 · O que vem agora</div><h2>O que eu estou <em>aprendendo</em> agora</h2>
+  <div class="plist">
+    <div class="pi rv"><span>em construção</span><h4>Tutor de conversa com IA</h4><p>Um agente pra o aluno treinar a fala, com o retorno "você disse × um nativo diria".</p></div>
+    <div class="pi rv"><span>em construção</span><h4>Correção de pronúncia</h4><p>Missão de áudio semanal com checagem automática antes da revisão da professora.</p></div>
+    <div class="pi rv"><span>estudando</span><h4>Orquestração de agentes</h4><p>Levar o que aprendi no MVP multiagente pra dentro do Inglês Club, sem esbarrar em limite de iterações.</p></div>
   </div>
+  <p class="form">Formação: Tecnólogo em Gestão de Tecnologia da Informação, em andamento, com conclusão prevista para dezembro de 2027.</p>
 </section>
 
-<!-- CONTATO -->
 <section class="ct wrap" id="contato">
   <div class="eb">05 · Contato</div>
   <h2>Vamos construir <em>juntos?</em></h2>
   <div class="bts"><a class="bt k" href="https://www.linkedin.com/in/sabarah" target="_blank" rel="noopener">LinkedIn ↗</a><a class="bt" href="https://github.com/carolsabara" target="_blank" rel="noopener">GitHub ↗</a><a class="bt" href="https://meuinglesclub.com.br" target="_blank" rel="noopener">Inglês Club ↗</a><a class="bt" href="https://www.instagram.com/ingles.club/" target="_blank" rel="noopener">@ingles.club ↗</a></div>
 </section>
+<div class="recado" id="recado" role="note"><button type="button" aria-label="Fechar recado" id="recX">×</button><small id="recT"></small><span id="recP"></span></div>
 <footer><span>2026 · Portfólio · Carol</span></footer>
 
 <!-- detalhe -->
@@ -397,6 +436,11 @@ function loop(now){sy=scrollY;var d=sy-lastY;lastY=sy;vy+=(d-vy)*.12;
   requestAnimationFrame(loop)}
 requestAnimationFrame(function(){document.body.classList.add('on');$('#hero').classList.add('on');requestAnimationFrame(loop)});
 
+
+/* ===== recado personalizado: link com ?para=ifood ===== */
+(function(){var q=new URLSearchParams(location.search).get('para');var R={ifood:['Oi, time iFood','Montei este portfólio para mostrar como eu aprendo: <b>construindo</b>. Cada automação aqui nasceu de um problema real. Quero trazer essa mesma vontade de resolver problemas com IA para o estágio no iFood.']};
+  var r=q&&R[q.toLowerCase()];if(!r)return;if(q.toLowerCase()==='ifood')$('#cardapio').hidden=false;var tg=$('#htag');tg.classList.add('emp');tg.innerHTML='para o <img src="img/ifood-logo.webp" alt="iFood" class="lgif">';$('#recT').textContent=r[0];$('#recP').innerHTML=r[1];
+  var fechado=false;setTimeout(function(){if(scrollY<innerHeight*.5)$('#recado').classList.add('on')},2600);addEventListener('scroll',function(){if(!fechado)$('#recado').classList.toggle('on',scrollY<innerHeight*.5)},{passive:true});$('#recX').onclick=function(){fechado=true;$('#recado').classList.remove('on')}})();
 /* ===== GSAP + ScrollTrigger (skills gsap-core, gsap-timeline, gsap-performance) ===== */
 addEventListener('load',function(){var g=window.gsap,ST=window.ScrollTrigger;if(!g||!ST)return;
   try{g.registerPlugin(ST);document.documentElement.classList.add('gs');
@@ -421,8 +465,8 @@ addEventListener('load',function(){var g=window.gsap,ST=window.ScrollTrigger;if(
     g.from('#flowc',{clipPath:'inset(0% 50% 0% 50% round 24px)',duration:1.3,ease:'expo.inOut',scrollTrigger:{trigger:'#flowc',start:'top 82%'}});
     ST.batch('.card',{start:'top 88%',onEnter:function(b){g.from(b,{y:60,autoAlpha:0,clipPath:'inset(30% 0% 0% 0%)',duration:1.1,ease:'expo.out',stagger:.1})}});
     /* quem sou eu */
-    g.from('.sobre .ft',{scale:.85,autoAlpha:0,rotation:-4,duration:1.2,ease:'back.out(1.6)',scrollTrigger:{trigger:'.sobre',start:'top 75%'}});
-    g.from('.sobre p,.tl li',{y:20,autoAlpha:0,duration:.8,stagger:.06,ease:'power3.out',scrollTrigger:{trigger:'.sobre',start:'top 70%'}});
+    
+    g.from('.pi',{y:30,autoAlpha:0,duration:.8,stagger:.08,ease:'power3.out',scrollTrigger:{trigger:'.plist',start:'top 80%'}});
     /* contato */
     g.from('.ct .bt',{y:20,autoAlpha:0,scale:.9,duration:.7,stagger:.07,ease:'back.out(2)',scrollTrigger:{trigger:'.ct',start:'top 75%'}});
   });
