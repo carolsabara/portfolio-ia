@@ -148,10 +148,10 @@ body.aberto .top{opacity:0;pointer-events:none}
 .prox .form{margin:28px 0 0;font:500 13px var(--m);color:var(--mut)}
 @media (max-width:860px){.plist{grid-template-columns:1fr}}
 /* recado personalizado (?para=empresa) */
-.recado{position:fixed;left:50%;bottom:22px;transform:translate(-50%,140%);z-index:45;max-width:min(560px,calc(100% - 32px));background:rgba(12,20,32,.92);backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:18px;padding:16px 46px 16px 18px;font-size:15px;line-height:1.5;color:#D5DCE4;transition:transform .8s cubic-bezier(.16,1,.3,1)}
+.recado{position:fixed;left:50%;bottom:20px;transform:translate(-50%,160%);z-index:45;max-width:min(520px,calc(100% - 32px));background:rgba(12,20,32,.9);backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:99px;padding:9px 38px 9px 16px;font-size:13px;line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#D5DCE4;transition:transform .8s cubic-bezier(.16,1,.3,1)}
 .recado.on{transform:translate(-50%,0)}
-.recado b{color:#fff}.recado small{display:block;font:500 11px var(--m);letter-spacing:.08em;text-transform:uppercase;color:var(--acc);margin-bottom:4px}
-.recado button{position:absolute;top:10px;right:10px;border:0;background:none;color:var(--mut);font-size:18px;cursor:pointer}
+.recado b{color:#fff}.recado small:empty{display:none}@media(max-width:600px){.recado{white-space:normal;width:max-content;border-radius:16px;font-size:12.5px}}.recado small{display:block;font:500 11px var(--m);letter-spacing:.08em;text-transform:uppercase;color:var(--acc);margin-bottom:4px}
+.recado button{position:absolute;top:50%;right:10px;transform:translateY(-50%);border:0;background:none;color:var(--mut);font-size:18px;cursor:pointer}
 /* cardápio */
 .menu{padding:14vh 28px 4vh}
 .msub{color:var(--mut);margin:12px 0 0;font-size:16px}
@@ -389,7 +389,7 @@ var SVG_LOJAS='<svg viewBox="0 0 800 500" preserveAspectRatio="xMidYMid meet" xm
 var PROJ=[
  {n:'01',t:'Automações com IA',l:1,s:'n8n · Gemini',vis:SVG_N8N,
   tx:'<div class="eb">Automação inteligente</div><h3>Automações com IA em n8n</h3><p>Fluxos conectados ao Supabase. Antes de qualquer chamada ao modelo, os dados passam por uma etapa que tira nomes e e-mails: o Gemini recebe só números.</p><ul><li>Progresso semanal: resumo da turma com sugestões de reforço</li><li>Em construção: alerta de aluno sumido, antes que ele desista</li><li>Aula gerada a partir dos erros reais do aluno</li></ul><div class="tags"><span>n8n</span><span>Gemini API</span><span>Supabase API</span><span>privacidade</span></div>'},
- {n:'02',t:'Plataforma Inglês Club',s:'produto · 2026',vis:'<img src="img/g/tv05.webp" alt="">',
+ {n:'02',t:'Plataforma Inglês Club',s:'produto · 2026',vis:'<img src="img/estudio.webp" alt="Estúdio de aulas: crio aulas com IA" style="object-position:left top">',
   tx:'<div class="eb">Produto real · em produção</div><h3>Plataforma Inglês Club</h3><p>Portal do aluno e da professora, construído do zero: login, liberação de listas, biblioteca de materiais, painel de progresso e um Game de revisão. Está no ar e é usada por alunos reais.</p><ul><li>Banco Postgres no Supabase com segurança por linha: cada aluno só vê os próprios dados</li><li>Deploy automático com GitHub Actions</li><li>Construída com o Claude como parceiro de programação: eu defino o que construir, decido a arquitetura, reviso e testo</li><li>Conteúdo como dados: slides, material, exercícios e áudios saem do mesmo arquivo</li></ul><div class="tags"><span>Claude</span><span>Supabase</span><span>Postgres · RLS</span><span>JavaScript</span><span>GitHub Actions</span></div>'},
  {n:'03',t:'Revisão contra o esquecimento',s:'repetição espaçada',vis:'<img src="img/game-escuro.webp" alt="" style="object-fit:contain;background:#16112a">',
   tx:'<div class="eb">Ideia minha · automatizado</div><h3>Revisão personalizada contra a curva do esquecimento</h3><p>A gente esquece boa parte do que aprende nos dias seguintes à aula. A minha ideia foi criar um sistema que registra os acertos e os erros de cada aluno e decide sozinho o que ele precisa revisar e quando.</p><ul><li>Cada frase vira um card que volta no momento certo: o que o aluno erra volta antes, o que ele domina volta mais tarde</li><li>Treino do dia automático: 10 itens montados para cada aluno, metade dos temas em que ele mais erra</li><li>Tema fraco = 3 ou mais respostas e 40% ou mais de erro nos últimos 60 dias</li><li>A professora só libera a unidade; o resto acontece sozinho</li></ul><div class="tags"><span>repetição espaçada</span><span>JavaScript</span><span>Supabase</span><span>regras de negócio</span></div>'},
@@ -438,9 +438,9 @@ requestAnimationFrame(function(){document.body.classList.add('on');$('#hero').cl
 
 
 /* ===== recado personalizado: link com ?para=ifood ===== */
-(function(){var q=new URLSearchParams(location.search).get('para');var R={ifood:['Oi, time iFood','Montei este portfólio para mostrar como eu aprendo: <b>construindo</b>. Cada automação aqui nasceu de um problema real. Quero trazer essa mesma vontade de resolver problemas com IA para o estágio no iFood.']};
+(function(){var q=new URLSearchParams(location.search).get('para')||'ifood';var R={ifood:['','<b>Oi, time iFood!</b> Quero trazer essa vontade de resolver problemas com IA pro estágio.']};
   var r=q&&R[q.toLowerCase()];if(!r)return;if(q.toLowerCase()==='ifood')$('#cardapio').hidden=false;var tg=$('#htag');tg.classList.add('emp');tg.innerHTML='para o <img src="img/ifood-logo.webp" alt="iFood" class="lgif">';$('#recT').textContent=r[0];$('#recP').innerHTML=r[1];
-  var fechado=false;setTimeout(function(){if(scrollY<innerHeight*.5)$('#recado').classList.add('on')},2600);addEventListener('scroll',function(){if(!fechado)$('#recado').classList.toggle('on',scrollY<innerHeight*.5)},{passive:true});$('#recX').onclick=function(){fechado=true;$('#recado').classList.remove('on')}})();
+  var fechado=false;setTimeout(function(){if(scrollY<innerHeight*.5)$('#recado').classList.add('on')},2600);setTimeout(function(){fechado=true;$('#recado').classList.remove('on')},8600);addEventListener('scroll',function(){if(!fechado)$('#recado').classList.toggle('on',scrollY<innerHeight*.5)},{passive:true});$('#recX').onclick=function(){fechado=true;$('#recado').classList.remove('on')}})();
 /* ===== GSAP + ScrollTrigger (skills gsap-core, gsap-timeline, gsap-performance) ===== */
 addEventListener('load',function(){var g=window.gsap,ST=window.ScrollTrigger;if(!g||!ST)return;
   try{g.registerPlugin(ST);document.documentElement.classList.add('gs');
